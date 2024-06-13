@@ -1,5 +1,6 @@
 @extends('layouts/layout_welcome');
 
+
 @section('content')
 <div class="container-xxl bg-white p-0">
 
@@ -15,203 +16,56 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0 pe-4">
-                    <a href="#home" class="nav-item nav-link">Home</a>
-                    <a href="#about" class="nav-item nav-link">About</a>
-                    <a href="#service" class="nav-item nav-link">Service</a>
-                    <a href="#team" class="nav-item nav-link">Our Team</a>
-                    <a href="#testimonial" class="nav-item nav-link">Testimonial</a>
-                    <a href="#contact" class="nav-item nav-link">Contact</a>
-                    @guest
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Login</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="{{ route('login') }}" class="dropdown-item">login</a>
-                            <a href="{{route('register')}}" class="dropdown-item">register</a>
-                        </div>
-                    </div>
-                    @endguest
-                    @auth
+                    <a href="#menu" class="nav-item nav-link">Menu</a>
                     <a href="{{ route('reservation') }}" class="nav-item nav-link">Reservation</a>
-                    <a href="#" class="nav-item nav-link active">{{ Auth::user()->name }}</a>
-                    <a href="{{ route('logout')}}" class="nav-item nav-link">Logout</a>
-                    @endauth
+                    <a href="#contact" class="nav-item nav-link">Contact</a>
+                </div>
+                <div class="nav-item dropdown ms-3">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fa fa-user"></i> User
+                    </a>
+                    <div class="dropdown-menu m-0">
+                        <a href="#" class="nav-item nav-link active">{{ Auth::user()->name }}</a>
+                        <a href="#" class="dropdown-item"><i class="fa fa-shopping-cart"></i> Orders</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{{ route('logout')}}" class="dropdown-item">
+                            <i class="fa fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
-
-        <div class="container-xxl py-5 bg-dark hero-header mb-5">
-            <div class="container my-5 py-5">
-                <div class="row align-items-center g-5">
-                    <div class="col-lg-6 text-center text-lg-start">
-                        <h1 class="display-3 text-white animated slideInLeft">Selamat Datang<br>2'Resto</h1>
-                        <p class="text-white animated slideInLeft mb-4 pb-2">kami mengundang Anda untuk merasakan pengalaman kuliner yang autentik dan memuaskan di tengah-tengah keramaian kota. Terletak di jantung pusat kota, restoran kami menawarkan suasana yang hangat dan ramah, cocok untuk bersantai bersama keluarga dan teman..</p>
-                        <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Book A Table</a>
-                    </div>
-                    <div class="col-lg-6 text-center text-lg-end overflow-hidden">
-                        <img class="img-fluid" src="{{ asset('')}}frontend/img/hero.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-    <!-- Navbar & Hero End -->
+</div>
 
-
-    <!-- Service Start -->
-    <div class="container-xxl py-5" id="service">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
-                            <h5>Master Chefs</h5>
-                            <p>Pengalaman kuliner istimewa yang memadukan keterampilan memasak dengan seni rasa. Benamkan diri Anda dalam perpaduan sempurna antara pengalaman dan cita rasa yang kaya, sebuah perjalanan melalui keunggulan kuliner.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
-                            <h5>Quality Food</h5>
-                            <p>Nikmati pengalaman bersantap mewah yang tak tertandingi. Benamkan diri Anda dalam perpaduan cita rasa yang canggih, di mana setiap hidangan dibuat dengan presisi, memastikan perjalanan kuliner yang menyenangkan.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
-                            <h5>Online Order</h5>
-                            <p>Jelajahi kemudahan pemesanan online dengan platform kami yang mudah. ​​Temukan berbagai pilihan dengan mudah dari tempat Anda yang nyaman. Rasakan kemudahan dan pilihan istimewa di ujung jari Anda.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-headset text-primary mb-4"></i>
-                            <h5>24/7 Service</h5>
-                            <p>Nikmati layanan 24/7 kami yang memadukan suasana yang tenang dengan pelayanan yang sempurna. Rasakan ketenangan dan keramahtamahan yang luar biasa—di mana setiap momen diciptakan dengan penuh perhatian.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Service End -->
-
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{{ asset('frontend/img/team-3.jpg')}}" class="d-block mx-auto w-70" alt="slideshow">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5></h5>
-                    <p>-</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{{ asset('frontend/img/team-2.jpg')}}" class="d-block mx-auto w-70" alt="slideshow">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5></h5>
-                    <p>-</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{{ asset('frontend/img/team-1.jpg')}}" class="d-block mx-auto w-70" alt="slideshow">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5></h5>
-                    <p>-</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-    
-    @push('scripts')
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        
-        var myCarousel = document.querySelector('#carouselExampleIndicators');
-        var carousel = new bootstrap.Carousel(myCarousel, {
-            interval: 5000, 
-            ride: 'carousel' // auto-slide
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.navbar-nav .nav-link').on('click', function () {
+            $('.navbar-nav .nav-link').removeClass('active');
+            $(this).addClass('active');
         });
     });
-    </script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
-    
+</script>
+       
+    <!-- Navbar & Hero End -->
 
-    <!-- About Start -->
-    <div class="container-xxl py-5" id="about">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6">
-                    <div class="row g-3">
-                        <div class="col-6 text-start">
-                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="{{ asset('')}}frontend/img/about-1.jpg">
-                        </div>
-                        <div class="col-6 text-start">
-                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="{{ asset('')}}frontend/img/about-2.jpg" style="margin-top: 25%;">
-                        </div>
-                        <div class="col-6 text-end">
-                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="{{ asset('')}}frontend/img/about-3.jpg">
-                        </div>
-                        <div class="col-6 text-end">
-                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="{{ asset('')}}frontend/img/about-4.jpg">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6" >
-                    <h5 class="section-title ff-secondary text-start text-primary fw-normal">Tentang Kami</h5>
-                    <h1 class="mb-4">Welcome to <i class="fa fa-utensils text-primary me-2"></i>2'Resto</h1>
-                    <p class="mb-4">Temukan sensasi kuliner yang memanjakan di restoran kami. Apakah Anda datang untuk menikmati makan malam yang tenang atau merayakan momen istimewa, staf kami yang ramah dan suasana yang mengundang siap membuat setiap kunjungan menjadi pengalaman yang berharga.
-                    </p>
-                    <p class="mb-4">Temukan sensasi kuliner yang memanjakan di restoran kami. Apakah Anda datang untuk menikmati makan malam yang tenang atau merayakan momen istimewa, staf kami yang ramah dan suasana yang mengundang siap membuat setiap kunjungan menjadi pengalaman yang berharga.</p>
+    <div class="container-xxl py-5 bg-dark hero-header mb-5">
 
-                    <div class="row g-4 mb-4">
-                        <div class="col-sm-6">
-                            <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
-                                <div class="ps-4">
-                                    <p class="mb-0">Tahun</p>
-                                    <h6 class="text-uppercase mb-0">Pengalaman</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">4</h1>
-                                <div class="ps-4">
-                                    <p class="mb-0">Master Chef</p>
-                                    <h6 class="text-uppercase mb-0">Terkenal</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
-                </div>
-            </div>
-        </div>
     </div>
-    <!-- About End -->
+   
 
+    <!-- Service Start -->
+   
+    <!-- Service End -->
+
+ 
     <!-- Menu Start -->
     <div class="container-xxl py-5" id="menu">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h5 class="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
-                <h1 class="mb-5">Most Popular Menu</h1>
+                
             </div>
             <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
                 <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
@@ -229,7 +83,7 @@
                             <i class="fa fa-hamburger fa-2x text-primary"></i>
                             <div class="ps-3">
                                 <small class="text-body">Special</small>
-                                <h6 class="mt-n1 mb-0">Launch</h6>
+                                <h6 class="mt-n1 mb-0">Lunch</h6>
                             </div>
                         </a>
                     </li>
@@ -255,7 +109,9 @@
                                             <span class="text-primary">200k</span> 
                                         </h5>
                                         <small class="fst-italic">Telur Dadar, Roti Panggang, Sosis atau Bacon, Kentang Goreng, Dan Pilihan Buah-Buahan Segar</small>
-                                        <button class="material-symbols-outlined" style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
+                                        <button class="material-symbols-outlined"
+                                        style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
+                                    
                                     </div>
                                 </div>
                             </div>
@@ -574,204 +430,93 @@
     </div>
     <!-- Menu End -->
 
-    <!-- Reservation Start -->
-    <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s" id="reservation">
-        <div class="row g-0">
-            <div class="col-lg-6 d-none d-lg-flex">
-                <img class="img-fluid w-100" src="{{ asset('')}}frontend/img/book_table.jpg" alt="" style="object-fit: cover;">
-            </div>
-            <div class="col-lg-6 col-12 bg-dark d-flex align-items-center">
-                <div class="p-5 wow fadeInUp w-100" data-wow-delay="0.2s">
-                    <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
-                    <h1 class="text-white mb-4">Book A Table Online</h1>
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                    <label for="email">Your Email</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating date" id="date3" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
-                                    <label for="datetime">Date & Time</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <select class="form-select" id="select1">
-                                        <option value="1">People 1</option>
-                                        <option value="2">People 2</option>
-                                        <option value="3">People 3</option>
-                                    </select>
-                                    <label for="select1">No Of People</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                    <label for="message">Special Request</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Reservation End -->
 
-    <!-- Team Start -->
-    <div class="container-xxl pt-5 pb-3" id="team">
+    
+
+
+    <div class="container-xxl py-5" id="contact">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h5 class="section-title ff-secondary text-center text-primary fw-normal">Team Members</h5>
-                <h1 class="mb-5">Our Master Chefs</h1>
+                <h5 class="section-title ff-secondary text-center text-primary fw-normal">Hubungi Kami</h5>
+                <h1 class="mb-5">Hubungi Untuk Pertanyaan apa pun</h1>
             </div>
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item text-center rounded overflow-hidden">
-                        <div class="rounded-circle overflow-hidden m-4">
-                            <img class="img-fluid" src="{{ asset('')}}frontend/img/team-1.jpg" alt="">
+                <div class="col-12">
+                    <div class="row gy-4">
+                        <div class="col-md-4">
+                            <h5 class="section-title ff-secondary fw-normal text-start text-primary">Booking</h5>
+                            <p><i class="fa fa-envelope-open text-primary me-2"></i>book@example.com</p>
                         </div>
-                        <h5 class="mb-0">Full Name</h5>
-                        <small>Designation</small>
-                        <div class="d-flex justify-content-center mt-3">
-                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        <div class="col-md-4">
+                            <h5 class="section-title ff-secondary fw-normal text-start text-primary">General</h5>
+                            <p><i class="fa fa-envelope-open text-primary me-2"></i>info@example.com</p>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item text-center rounded overflow-hidden">
-                        <div class="rounded-circle overflow-hidden m-4">
-                            <img class="img-fluid" src="{{ asset('')}}frontend/img/team-2.jpg" alt="">
-                        </div>
-                        <h5 class="mb-0">Full Name</h5>
-                        <small>Designation</small>
-                        <div class="d-flex justify-content-center mt-3">
-                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        <div class="col-md-4">
+                            <h5 class="section-title ff-secondary fw-normal text-start text-primary">Technical</h5>
+                            <p><i class="fa fa-envelope-open text-primary me-2"></i>tech@example.com</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item text-center rounded overflow-hidden">
-                        <div class="rounded-circle overflow-hidden m-4">
-                            <img class="img-fluid" src="{{ asset('')}}frontend/img/team-3.jpg" alt="">
-                        </div>
-                        <h5 class="mb-0">Full Name</h5>
-                        <small>Designation</small>
-                        <div class="d-flex justify-content-center mt-3">
-                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
+                <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                    <iframe class="position-relative rounded w-100 h-100"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.64697269567!2d107.56021812897278!3d-6.903132601314176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7be50d4d701%3A0x52ea69a2efc7d37f!2sKota%20Bandung%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1717387300887!5m2!1sid!2sid"
+                        frameborder="0" style="min-height: 350px; border:0;" allowfullscreen="" aria-hidden="false"
+                        tabindex="0"></iframe>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item text-center rounded overflow-hidden">
-                        <div class="rounded-circle overflow-hidden m-4">
-                            <img class="img-fluid" src="{{ asset('')}}frontend/img/team-4.jpg" alt="">
-                        </div>
-                        <h5 class="mb-0">Full Name</h5>
-                        <small>Designation</small>
-                        <div class="d-flex justify-content-center mt-3">
-                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Team End -->
-
- <!-- Testimonial Start -->
- <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s" id="testimonial">
-    <div class="container">
-        <div class="text-center">
-            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Testimonial</h5>
-            <h1 class="mb-5">Our Clients Say!!!</h1>
-        </div>
-        <div class="owl-carousel testimonial-carousel">
-            <div class="testimonial-item bg-transparent border rounded p-4">
-                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                <div class="d-flex align-items-center">
-                    <img class="img-fluid flex-shrink-0 rounded-circle" src="{{ asset('')}}frontend/img/testimonial-1.jpg" style="width: 50px; height: 50px;">
-                    <div class="ps-3">
-                        <h5 class="mb-1">client name</h5>
-                        <small>Profession</small>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item bg-transparent border rounded p-4">
-                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                <div class="d-flex align-items-center">
-                    <img class="img-fluid flex-shrink-0 rounded-circle" src="{{ asset('')}}frontend/img/testimonial-2.jpg" style="width: 50px; height: 50px;">
-                    <div class="ps-3">
-                        <h5 class="mb-1">Client Name</h5>
-                        <small>Profession</small>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item bg-transparent border rounded p-4">
-                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                <div class="d-flex align-items-center">
-                    <img class="img-fluid flex-shrink-0 rounded-circle" src="{{ asset('')}}frontend/img/testimonial-3.jpg" style="width: 50px; height: 50px;">
-                    <div class="ps-3">
-                        <h5 class="mb-1">Client Name</h5>
-                        <small>Profession</small>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item bg-transparent border rounded p-4">
-                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                <div class="d-flex align-items-center">
-                    <img class="img-fluid flex-shrink-0 rounded-circle" src="{{ asset('')}}frontend/img/testimonial-4.jpg" style="width: 50px; height: 50px;">
-                    <div class="ps-3">
-                        <h5 class="mb-1">Client Name</h5>
-                        <small>Profession</small>
+                <div class="col-md-6">
+                    <div class="wow fadeInUp" data-wow-delay="0.2s">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                        <label for="name">Nama Lengkap</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                        <label for="email">No WhatsApp</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                        <label for="subject">Subject</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                        <label for="message">Message</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Kirim Pesan</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Testimonial End -->
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s" id="contact">
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
                     <a class="btn btn-link" href="">About Us</a>
                     <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="{{ route('reservation') }}">Reservation</a>
+                    <a class="btn btn-link" href="">Reservation</a>
                     <a class="btn btn-link" href="">Privacy Policy</a>
                     <a class="btn btn-link" href="">Terms & Condition</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, Bandung, Indonesia</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, Jakarta, Indonesia</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
                     <div class="d-flex pt-2">
@@ -802,7 +547,7 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Gamelab.id</a>, 
+                        &copy; <a class="border-bottom" href="#">Gamelab.id</a> 
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
